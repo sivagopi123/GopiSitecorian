@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4857DB18-2763-4D25-A9D1-8987DAD004EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{256ABE17-B40E-4342-9911-F9A352A29452}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AsyncAwait", "src\AsyncAwait\AsyncAwait.xproj", "{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DBF5C70A-682B-4F1D-AAA6-810CCA8E6C11} = {256ABE17-B40E-4342-9911-F9A352A29452}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AsyncAwait</name>
+    </assembly>
+    <members>
+        <member name="M:AsyncAwait.Program.OrderofOperations">
+            Variable types string and numbers
+            
+        </member>
+        <member name="M:AsyncAwait.Program.ifStateent">
+            Branches and Loops
+            
+        </member>
+    </members>
+</doc>
