@@ -1,0 +1,20 @@
+fields:
+  pageTitle: Card List
+# Define the page layout starting at the root placeholder - in this case, 'jss-main'
+# root placeholder names are defined in the package.json config section (required for Sitecore deployment)
+placeholders:
+  jss-main:
+  - componentName: CardList
+    fields:
+      heading: Git Hub - Card list
+      # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+      # as long as the same indent is preserved at the beginning of each line, no escaping
+      # is required at all in the value, making it easy to read
+      content: |
+          <h3>Find your git hub profile</h3>    
+          <p>Enter the Git Hub profile to be added in the card list and click on Add. The corresponding avatar, username and 
+          company will be added in the card list
+          </p>
+          <h5>To get the Number game <a href="/numbergame">click here</a>...</h5>
+
+

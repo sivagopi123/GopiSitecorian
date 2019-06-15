@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+<button class="btn btn-primary" onclick="location.href='@Url.Action("MovieDetails","Movies")'">Add New Movie</button>
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            var dataTableMovies = $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "movieName",
+                        render: function (data, type, movie) {
+                            return "<a href='/Movies/MovieDetails/" + movie.movieId + "'>" + movie.movieName + "</a>";
+                        }
+                    },
+                    {
+                        data: "genre.genreName"
+                    },
+                    {
+                        data: "movieId",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#customers").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete the customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/movies/" + button.attr("data-movie-id"),
+                            method: "DELETE",
+                            success: function () {
+                                dataTableMovies.row(button.parents("tr")).remove();
+                                dataTableMovies.draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

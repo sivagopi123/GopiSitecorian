@@ -1,0 +1,40 @@
+a[target='_blank']:after {
+  content: '\1F5D7'
+}
+
+/*
+  Hides Sitecore Experience Editor markup,
+  if you run the app in connected mode while the Sitecore cookies
+  are set to edit mode.
+*/
+.scChromeData, .scpm { display: none !important; }
+
+
+.mountNode {
+  color: #333;
+}
+.fa-star{
+	margin:0.5em;
+  font-size:24px;
+}
+span{
+	display:inline-block;
+  margin:0.5em;
+  text-align:center;
+  background-color:#ccc;
+  width:24px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.selected{
+	background-color:#eee;
+  color:#ddd;
+  cursor:not-allowed;
+}
+
+.used{
+	background-color:#aaddaa;
+  color:#99bb99;
+  cursor:not-allowed;
+}

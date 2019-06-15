@@ -1,0 +1,46 @@
+﻿@model Vidly.ViewModels.RandomMovieViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button class="btn btn-primary" onclick="location.href='@Url.Action("MovieDetails","Movies")'">Add New Movie</button>
+@{
+    var className = Model.Movie.Count > 1 ? "popular" : null;
+}
+@if ((@Model.Movie is null) || (Model.Movie.Count == 0))
+{
+    <h2 class="@className">No Movie Name Available</h2>
+}
+else
+{
+    <h2 class="@className">Movies</h2>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Genre
+            </th>
+        </tr>
+        @foreach (var movie in Model.Movie)
+        {
+            <tr>
+                <td>
+                    @*@{
+                            var url = string.Format("MovieDetails/{0}", movie.MovieId);
+                            <a href=@url>@movie.MovieName</a>
+                        }*@
+                    @Html.ActionLink(movie.MovieName, "MovieDetails", "Movies", new { Id = movie.MovieId }, null)
+                </td>
+                <td>
+                    @movie.Genre.GenreName
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+

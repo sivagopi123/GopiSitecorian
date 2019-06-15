@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<button class="btn btn-primary" onclick="location.href='@Url.Action("CustomerDetails","Customers")'">Add New User</button>
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Customer
+            </th>
+            <th>
+                Discount Rate
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            var dataTableCustomers = $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "customerName",
+                        render: function (data, type, customer) {
+                            return "<a href='/Customers/CustomerDetails/" + customer.customerId + "'>" + customer.customerName + "</a>";
+                        }
+                    },
+                    {
+                        data: "membershipType.membershipTypeName"
+                    },
+                    {
+                        data: "customerId",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#customers").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete the customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                dataTableCustomers.row(button.parents("tr")).remove();
+                                dataTableCustomers.draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

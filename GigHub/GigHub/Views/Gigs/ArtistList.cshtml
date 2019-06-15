@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GigHub.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ArtistList";
+}
+
+<h2>ArtistList</h2>
+
+<ul class="vvosc3">
+    @foreach (var artist in Model)
+    {
+        <li>
+            <div class="artist">
+                <span class="artistName">@artist.Name</span>
+                <span class="followButton"><button data-artist-id="@artist.Id" class="btn btn-default js-toggle-following">Un - Follow</button></span>
+            </div>
+        </li>
+    }
+</ul>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-following").click(function (e) {
+                e.preventDefault();
+                var button = $(e.target);
+                $.post("api/followings", { "artistId": button.attr("data-artist-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-primary")
+                            .text("Follow");
+                    })
+                    .fail(function () {
+                        alert("Something failed in following!")
+                    });
+            });
+        });
+    </script>
+}

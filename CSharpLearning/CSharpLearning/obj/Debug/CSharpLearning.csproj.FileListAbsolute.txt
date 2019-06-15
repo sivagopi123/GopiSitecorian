@@ -1,6 +1,0 @@
-D:\CSharp Learning\CSharpLearning\CSharpLearning\bin\Debug\CSharpLearning.exe.config
-D:\CSharp Learning\CSharpLearning\CSharpLearning\bin\Debug\CSharpLearning.exe
-D:\CSharp Learning\CSharpLearning\CSharpLearning\bin\Debug\CSharpLearning.pdb
-D:\CSharp Learning\CSharpLearning\CSharpLearning\obj\Debug\CSharpLearning.csprojResolveAssemblyReference.cache
-D:\CSharp Learning\CSharpLearning\CSharpLearning\obj\Debug\CSharpLearning.exe
-D:\CSharp Learning\CSharpLearning\CSharpLearning\obj\Debug\CSharpLearning.pdb

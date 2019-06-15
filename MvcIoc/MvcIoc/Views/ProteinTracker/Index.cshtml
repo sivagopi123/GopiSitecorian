@@ -1,0 +1,16 @@
+﻿@inherits MvcIoc.Pages.ProteinTrackerBasePage
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Protein Tracker</h2>
+
+@analyticService.Code
+
+Total: @ViewBag.Total Goal: @ViewBag.Goal
+
+@using (Html.BeginForm("AddProtein", "ProteinTracker", new { amount = 0 }))
+{
+    <input type="text" name="amount" />
+    <button type="submit">Add</button>
+}

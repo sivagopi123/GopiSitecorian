@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GigHub.Models.Gig>
+@{
+    ViewBag.Title = "Mine";
+}
+
+<h2>My Gigs</h2>
+<ul class="gigs vvosc3">
+    @foreach (var g in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">@g.DateTime.ToString("MMM")</div>
+                <div class="day">@g.DateTime.ToString("d ")</div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @g.Venue
+                </span>
+
+                <span class="genre">
+                    @g.Genre.Name
+                    @if (g.IsCancelled)
+                    {
+                        <span class="label label-warning">Cancelled</span>
+                    }
+                </span>
+                <div class="actions">
+                    <a href="@Url.Action("Edit","Gigs", new { id = g.Id})">Edit</a>
+                    <a data-gig-id="@g.Id" class="js-cancel-gig" href="#">Cancel</a>
+                </div>
+            </div>
+
+        </li>
+    }
+</ul>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel-gig").click(function (e) {
+                var link = $(e.target);
+
+                bootbox.confirm("Are you sure you want to cancel this gig?", function (result) {
+                    $.ajax({
+                        url: "/api/gigs/" + link.attr("data-gig-id"),
+                        method: "DELETE"
+                    })
+                        .done(function () {
+                            link.parents("li").fadeOut(function () {
+                                $(this).remove();
+                            });
+                        })
+                        .fail(function () {
+                            alert("Something Failed");
+                        });
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+}

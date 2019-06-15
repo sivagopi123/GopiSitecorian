@@ -1,0 +1,38 @@
+﻿@inherits System.Web.Mvc.WebViewPage<OwinKatanaProject.Models.LoginModel>
+    @using System.Web.Mvc.Html
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @using (var form = Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(x => x.UserName)
+                @Html.TextBoxFor(x => x.UserName)
+            </div>
+            <div>
+                @Html.LabelFor(x => x.Password)
+                @Html.TextBoxFor(x => x.Password)
+            </div>
+            <div>
+                <input type="submit" value="Log In" />
+            </div>
+        }
+
+    </div>
+    @foreach (var login in Model.LoginProviders)
+    {
+        <div>@Html.ActionLink($"Log in with {login.Caption}", "SocialLogin", new {id = login.AuthenticationType })</div>
+    }
+
+</body>
+</html>

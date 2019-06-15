@@ -1,0 +1,23 @@
+fields:
+  pageTitle: Play Nine
+# Define the page layout starting at the root placeholder - in this case, 'jss-main'
+# root placeholder names are defined in the package.json config section (required for Sitecore deployment)
+placeholders:
+  jss-main:
+  - componentName: NumberGame
+    fields:
+      heading: Play Nine - Welcome to the mind game
+      # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+      # as long as the same indent is preserved at the beginning of each line, no escaping
+      # is required at all in the value, making it easy to read
+      content: |
+          <h3>How to play this game?</h3>    
+          <p>Numbers will be displayed in ramdom order. Player have to select a combination of numbers from the options given and make the sum of numbers as equal to the 
+          random stars displayed. After selecting the number click on the equal sign to check your answer. If the answer is correct you get a green sign, 
+          if not you get a red icon. Player will have the option to reselected the selected answer if its wrong. 
+          One cannot select an already selected number. However if no options are available for selecting player can redraw the star to
+          get a new combination. Maximum 5 redraw is allowed, after which the game will get over. 
+          </p>
+          <h5>To get the card list <a href="/cardlist">click here</a>...</h5>
+
+

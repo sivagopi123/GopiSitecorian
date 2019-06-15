@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BasLijten.FederatedAuthentication/App_Config/Include/BasLijten.FederatedAuthentication.Auth0.Settings.config
+/.vs
+/BasLijten.FederatedAuthentication/obj
+/BasLijten.FederatedAuthentication/bin
+/packages
